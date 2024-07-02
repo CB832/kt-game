@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9694d758-6ab1-442c-b5bc-02f2de908206" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Item.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Entity.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
