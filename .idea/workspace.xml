@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9694d758-6ab1-442c-b5bc-02f2de908206" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Location.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Location.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Location.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -46,7 +45,8 @@
     "onboarding.tips.debug.path": "/Users/kiti/Desktop/proj/kt-game/src/Main.kt",
     "project.structure.last.edited": "SDKs",
     "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.0"
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
   <component name="SharedIndexes">
