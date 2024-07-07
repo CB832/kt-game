@@ -1,10 +1,10 @@
 fun main() {
-    var room1 = Location("Bar", "Loud and noisy", mutableSetOf(), mutableSetOf(), mutableSetOf())
-    var room2 = Location("Home", "Quiet and warm", mutableSetOf(), mutableSetOf(), mutableSetOf())
-    var sword = Item("Death", 50.0, Rarity.Rare, 3.0)
-    var apple = Item("Apple", 1.0, Rarity.Common, 3.0)
-    var player = Entity("Jack", 16.0, mutableSetOf(), room1)
-    var zombie = Entity("Zombie", 100.0, mutableSetOf(), room1)
+    var room1 = Location("bar", "Loud and noisy", mutableSetOf(), mutableSetOf(), mutableSetOf())
+    var room2 = Location("home", "Quiet and warm", mutableSetOf(), mutableSetOf(), mutableSetOf())
+    var sword = Item("death", 50.0, Rarity.Rare, 3.0)
+    var apple = Item("apple", 1.0, Rarity.Common, 3.0)
+    var player = Entity("jack", 16.0, mutableSetOf(), room1, 10.0)
+    var zombie = Entity("zombie", 100.0, mutableSetOf(), room1, 10.0)
     player.inventory.add(sword)
     for (item in player.inventory) {
         println(item.name)
@@ -23,6 +23,7 @@ fun main() {
         println(item.name)
     }
     var running = true
+    gameloop@
     while (running == true) {
         println("Enter a command!")
         var command = readln()
@@ -37,7 +38,8 @@ fun main() {
                 if (item.name == response) {
                     player.inventory.remove(item)
                     player.location.items.add(item)
-                    continue
+                    println("You have dropped ${item.name}")
+                    continue@gameloop
                 }
             }
             println("You dont have that item")
@@ -49,17 +51,62 @@ fun main() {
                 if (item.name == response) {
                     player.inventory.add(item)
                     player.location.items.remove(item)
-                    continue
+                    println("You have picked up ${item.name}")
+                    continue@gameloop
                 }
             }
             println("That item is not in you vacinity")
         }
-        if (command == "go to") {
+        if (command == "goto") {
             println("Where would you like to go?")
             var response = readln()
             for (location in player.location.destinations) {
                 if (location.name == response) {
                     player.location = location
+                    println("You are now at ${player.location.name}")
+                    continue@gameloop
+                }
+            }
+            println("Location not found")
+        }
+        if (command == "whereami") {
+            println("You are at ${player.location.name}")
+        }
+        if (command == "look") {
+            println("Look for what?")
+            var response = readln()
+            if (response == "item") {
+                for (item in player.location.items) {
+                    println("You have found ${item.name}")
+                }
+            }
+            if (response == "people") {
+                for (person in player.location.entities) {
+                    println("You have found ${person.name}")
+                }
+            }
+        }
+        if (command == "inv") {
+            for (item in player.inventory) {
+                println(item.name)
+            }
+        }
+        if (command == "attack") {
+            println("What would you like to use to attack")
+            var weapon = readln()
+            for (item in player.inventory) {
+                if (item.name == weapon) {
+                    println("You have that weapon")
+                    println("Who would you like to attack?")
+                    var attackie = readln()
+                    for (person in player.location.entities) {
+                        if (person.name == attackie) {
+                            println("You have attacked the person")
+                            person.health -= 10.0
+                            println("Their remaining health is ${person.health}")
+                        }
+                    }
+                    continue@gameloop
                 }
             }
         }
